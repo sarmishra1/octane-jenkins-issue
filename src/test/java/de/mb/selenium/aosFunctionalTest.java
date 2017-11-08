@@ -1,6 +1,20 @@
 package de.mb.selenium;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import com.hpe.alm.octane.OctaneCucumber;
+import cucumber.api.CucumberOptions;
+
+@RunWith(OctaneCucumber.class)
+@CucumberOptions(plugin={"junit:junitResult.xml"},
+                features= {"src/test/java/de/mb/selenium/"})
+
+public class aosFunctionalTest {
+
+}
+
+/*import static org.junit.Assert.assertTrue;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,7 +28,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class GoogleStartPageTest {
+public class aosFunctionalTest {
 
 	private WebDriver driver;
 
@@ -45,3 +59,4 @@ public class GoogleStartPageTest {
 
 
 }
+*/
