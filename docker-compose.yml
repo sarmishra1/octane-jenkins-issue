@@ -1,0 +1,27 @@
+version: '2'
+
+networks:
+  prodnetwork:
+    driver: bridge
+
+services:
+ aos_tomcat:
+  image: 10.144.2.110:8123/aos_tomcat_built
+  ports:
+    - "80:8000"
+    - "8009:8009"
+  networks:
+    - prodnetwork
+  depends_on:
+    - aos_postgres
+  extra_hosts:
+    - "aos_postgres: 10.144.2.237"
+  hostname: aosweb.aos.com
+
+ aos_postgres:
+  image: 10.144.2.110:8123/aos_postgres
+  ports:
+   - "5432:5432"
+  networks:
+    - prodnetwork
+  hostname: aos_postgres
