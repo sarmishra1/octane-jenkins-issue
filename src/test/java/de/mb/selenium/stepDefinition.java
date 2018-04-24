@@ -24,31 +24,19 @@ public class stepDefinition {
 
 	@Given("^The selenium setup is complete$")
 	public void setUp() throws MalformedURLException {
-		String serverUrl = System.getProperty("grid.server.url");
-		String gridServerUrl = "http://10.144.2.237:4444/wd/hub";
-		if (serverUrl != null) {
-			gridServerUrl = serverUrl;
-		}
-		DesiredCapabilities capability = DesiredCapabilities.chrome();
-		URL gridUrl = new URL(gridServerUrl);
-		driver = new RemoteWebDriver(gridUrl, capability);
-		driver.get("http://10.144.2.14:80");
+		System.out.println("Given step");
 	}
 
 	@When("^print a simple message$")
 	public void printSimpleMessage() {
-		System.out.println("Setup is complete!");
+		System.out.println("When step");
 	}
 
 	@Then("^aos application body is loaded and not null$")
 	public void pageBodyIsNotNull() throws MalformedURLException {
-		String bodyText = driver.findElement(By.tagName("body")).getText();
+		System.out.println("Then step");
 		assertTrue(bodyText != null);
 	}
 
-	@And("^close the web browser$")
-	public void tearDownWebDriver() {
-		driver.quit();
-	}
 
 }
